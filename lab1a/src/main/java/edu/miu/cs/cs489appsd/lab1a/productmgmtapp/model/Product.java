@@ -2,17 +2,18 @@ package edu.miu.cs.cs489appsd.lab1a.productmgmtapp.model;
 
 import edu.miu.cs.cs489appsd.lab1a.productmgmtapp.util.DataFormatUtil;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 
 public class Product {
-    private String productId;
+    private BigInteger productId;
     private String productName;
     private LocalDate dateSupplied;
-    private int inStock;
-    private double price;
+    private Integer inStock;
+    private Double price;
 
-    Product(String productId, String productName, LocalDate dateSupplied, int inStock, double price) {
+    Product(BigInteger productId, String productName, LocalDate dateSupplied, Integer inStock, Double price) {
         this.productId = productId;
         this.productName = productName;
         this.dateSupplied = dateSupplied;
@@ -21,19 +22,21 @@ public class Product {
     }
 
     Product(){
-
+        this(null,null,null,null,null);
     }
 
-    Product(String productId, String productName, double price){
+    Product(BigInteger productId, String productName, double price){
         this.productId = productId;
         this.productName = productName;
         this.price = price;
+        this.dateSupplied = null;
+        this.inStock = null;
     }
 
-    public String getProductId() {
+    public BigInteger getProductId() {
         return productId;
     }
-    public void setProductId(String productId) {
+    public void setProductId(BigInteger productId) {
         this.productId = productId;
     }
     public String getProductName() {
