@@ -1,1 +1,1 @@
-![Appointment Table Screenshot](./screenshots/db-ss.png)
+![Appointment Table Screenshot](./ADSdentalSurgeryManagement/screenshots/db-ss.png)
