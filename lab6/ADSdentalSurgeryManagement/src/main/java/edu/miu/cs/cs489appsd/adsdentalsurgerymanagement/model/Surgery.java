@@ -15,10 +15,13 @@ public class Surgery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String surgeryNumber;
+
     @Column(name = "name", nullable = false, length = 32)
     private String surgeryName;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "address_id")
     private Address location;
 

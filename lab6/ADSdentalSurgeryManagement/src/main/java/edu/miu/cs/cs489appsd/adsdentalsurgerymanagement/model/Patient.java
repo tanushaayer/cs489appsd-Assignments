@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,10 +28,14 @@ public class Patient {
     @Column(nullable = false)
     private LocalDate dob;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
     @OneToMany(mappedBy = "patient")
-    List<Appointment> appointments;
+    List<Appointment> appointments = new ArrayList<>();
+
+    public void addAppointment(Appointment appointment) {
+        this.appointments.add(appointment);
+    }
 }

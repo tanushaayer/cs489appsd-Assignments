@@ -1,0 +1,1 @@
+![Appointment Table Screenshot](./screenshots/db-ss.png)

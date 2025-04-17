@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,5 +28,9 @@ public class Dentist {
     private String specialization;
 
     @OneToMany(mappedBy = "dentist")
-    private List<Appointment> appointments;
+    private List<Appointment> appointments = new ArrayList<>();
+
+    public void addAppointment(Appointment appointment) {
+        this.appointments.add(appointment);
+    }
 }

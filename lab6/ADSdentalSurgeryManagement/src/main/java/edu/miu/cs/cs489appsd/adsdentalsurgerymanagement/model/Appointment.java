@@ -15,6 +15,9 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    private String appointmentNumber;
+
     @Column(nullable = false)
     private LocalDate date;
     @Column(nullable = false)
@@ -28,7 +31,7 @@ public class Appointment {
     @JoinColumn(name = "dentitst_id")
     private Dentist dentist;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "surgery_id")
     private Surgery surgery;
 }
